@@ -2,14 +2,30 @@ name: The First Workflow
 on: push
 
 jobs:
-  run-shell-commands:
-    runs-on: ubuntu-latest
-    steps:
-        - name: Run Shell Commands
-          run: |
-            echo "Hello, World!"
+    run-shell-commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run shell commands
+              run: |
+                echo "Hello, World!"
 
-        - name: Run Another Command
-          run: |
-            node -v
-            npm -v
+            - name: Run another command
+              run: |
+                npm -v
+                node -v
+    parallel-jobs:
+        runs-on: macos-latest
+        steps:
+            - name: View software versions
+              run: |
+                echo "Running on macOS"
+                sw_vers
+                brew --version
+    depentent-jobs:
+        runs-on: windows-latest
+        needs: [run-shell-commands]
+        steps:
+            - name: echo a string
+              run: Write-Output "Windows string"
+            - name: Error step
+              run: doesnotexist
