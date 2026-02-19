@@ -6,7 +6,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Print the current working directory
-            run: pwd
+            run: |
+                 pwd
                  ls -a
                  echo $GITHUB_SHA
                  echo $GITHUB_REPOSITORY
@@ -15,7 +16,8 @@ jobs:
         runs-on: windows-latest
         steps:
           - name: Print the current working directory in Windows
-            run: pwd
+            run: |
+                 pwd
                  ls -a
                  echo $GITHUB_SHA
                  echo $GITHUB_REPOSITORY
