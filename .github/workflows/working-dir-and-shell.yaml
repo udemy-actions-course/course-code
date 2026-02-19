@@ -1,0 +1,22 @@
+name: Working Directory and Shell
+on: push
+
+jobs:
+    test-working-dir-and-shell:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Print the current working directory
+            run: pwd
+                 ls -a
+                 echo $GITHUB_SHA
+                 echo $GITHUB_REPOSITORY
+                 echo $GITHUB_WORKSPACE
+    display-working-dir-and-shell-windows:
+        runs-on: windows-latest
+        steps:
+          - name: Print the current working directory in Windows
+            run: pwd
+                 ls -a
+                 echo $GITHUB_SHA
+                 echo $GITHUB_REPOSITORY
+                 echo $GITHUB_WORKSPACE
